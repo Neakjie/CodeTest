@@ -345,3 +345,8 @@ console.log(mapArr.map(myMapFunction));
 var mathMaxArr = [2, 2, 5, 7];
 
 console.log(Math.max(...mathMaxArr));
+////////////////////////////////////////////////////Undefined & null////////////////////////////////
+console.log(undefined > 0);
+console.log(undefined < 0);
+console.log(undefined == 0);
+console.log(undefined == null);
