@@ -341,3 +341,7 @@ function myMapFunction(num) {
 //////////map will return, for each don't need a return
 
 console.log(mapArr.map(myMapFunction));
+///////////////////////////////////////////////////Math.max()////////////////////////////////////////
+var mathMaxArr = [2, 2, 5, 7];
+
+console.log(Math.max(...mathMaxArr));
