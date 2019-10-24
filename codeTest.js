@@ -358,6 +358,9 @@ console.log("!! shows '0' :" + !!"0");
 console.log("!! shows empty string '' :" + !!"");
 console.log("!! shows [] :" + !![]);
 
+console.log([] == true); //because this [] changes to "" and ""changes to 0, but true changes to 1
+
+
 /////////////////////////////////////////////////comma , ///////////////////////////////////////////
 var commaArr = (2, 3, 5);
 console.log("comma:" + commaArr);
