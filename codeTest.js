@@ -356,3 +356,14 @@ console.log("!! shows undefined :" + !!undefined);
 console.log("!! shows 0 :" + !!0);
 console.log("!! shows '0' :" + !!"0");
 console.log("!! shows empty string '' :" + !!"");
+
+/////////////////////////////////////////////////comma , ///////////////////////////////////////////
+var commaArr = (2, 3, 5);
+console.log("comma:" + commaArr);
+
+//////////////////////////////////////////////// a && b /////////////////////////////////////////////
+var a = 5;
+var b = 3;
+console.log(a || b); ///return the first true
+
+console.log(a && b); /// return the last true
