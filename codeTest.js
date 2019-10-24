@@ -350,3 +350,9 @@ console.log(undefined > 0);
 console.log(undefined < 0);
 console.log(undefined == 0);
 console.log(undefined == null);
+
+///////////////////////////////////////////////////////!! double not equal//////////////////////////
+console.log("!! shows undefined :" + !!undefined);
+console.log("!! shows 0 :" + !!0);
+console.log("!! shows '0' :" + !!"0");
+console.log("!! shows empty string '' :" + !!"");
