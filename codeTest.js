@@ -356,6 +356,7 @@ console.log("!! shows undefined :" + !!undefined);
 console.log("!! shows 0 :" + !!0);
 console.log("!! shows '0' :" + !!"0");
 console.log("!! shows empty string '' :" + !!"");
+console.log("!! shows [] :" + !![]);
 
 /////////////////////////////////////////////////comma , ///////////////////////////////////////////
 var commaArr = (2, 3, 5);
