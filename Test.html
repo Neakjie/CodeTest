@@ -30,7 +30,7 @@
     This is an example of a alternate marquee...
 </marquee>
 
-<div>
+<div id="event" onclick="eventTry(event)">
     <p>Hello</p>
     <blockquote>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</blockquote>
 </div>
@@ -51,6 +51,13 @@
 
     console.log(null !== undefined);
     console.log(null == undefined);
+
+    function eventTry(event) {
+        var x = event.pageX;
+        var y = event.pageY;
+        console.log(event);
+
+    }
 </script>
 <progress id="progress-javascript-example" min="1" max="100"></progress>
 <br/><br/>
@@ -58,7 +65,7 @@
 
 
 <details>
-    <summary>Copyright 2011-2014.</summary>
+    <summary>Copyright&copy; 2011-2014.</summary>
     <p> - by JavaTpoint. All Rights Reserved.</p>
     <p>All content and graphics on this web site are the property of the javatpoint.com</p>
 </details>
