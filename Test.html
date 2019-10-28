@@ -58,6 +58,23 @@
         console.log(event);
 
     }
+    ///use JS to change height
+    var obj1 = document.getElementById("event");
+
+    function getCss(obj, style) {
+        if (window.getComputedStyle) {
+            return getComputedStyle(obj)[style]
+        }
+        return obj.currentStyle[style];
+    }
+
+    function heightFunction(obj) {
+        obj.style.paddingBottom = parseFloat(getCss(obj, 'padding-bottom')) + 20 + 'px';
+
+    }
+
+
+    heightFunction(obj1);
 </script>
 <progress id="progress-javascript-example" min="1" max="100"></progress>
 <br/><br/>
