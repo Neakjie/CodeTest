@@ -391,3 +391,21 @@ function TwoSum() {
 }
 
 console.log(TwoSum());
+///////////////////////////////////////////////////////Power of Three///////////////////////////////////////////////
+var PowerOf3 = 1;
+
+function PowerofThree() {
+    while (PowerOf3 > 3) {
+        PowerOf3 = PowerOf3 / 3
+
+    }
+    if (PowerOf3 - 3 == 0) {
+        return true
+    } else if (PowerOf3 == 1) {
+        return true
+    } else {
+        return false
+    }
+
+}
+console.log(PowerofThree());
