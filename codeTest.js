@@ -420,7 +420,7 @@ function TwoArrays() {
 }
 
 console.log(TwoArrays());
-/////////////////////////
+/////////////////////////method two//////////////////////////
 function intersection() {
     let set = new Set(twoArrayOne);
     let res = new Set();
@@ -436,3 +436,16 @@ function intersection() {
 
 let tt = intersection();
 console.log(tt);
+
+
+
+
+
+////////////////////////////////////////////////////////////////power of four///////////////////////////////////////////////////////
+var powerofFour = 4;
+
+function PowerOfFour() {
+    return (Math.log(powerofFour) / Math.log(4)) % 1 === 0;
+
+}
+console.log(PowerOfFour());
