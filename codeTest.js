@@ -409,3 +409,30 @@ function PowerofThree() {
 
 }
 console.log(PowerofThree());
+
+/////////////////////////////////////////////////////////two arrays//////////////////////////////////////////////
+const twoArrayOne = [2, 3, 4, 1, 4]
+const twoArrayTwo = [2, 4, 5]
+
+function TwoArrays() {
+    let set = new Set(twoArrayOne);
+    return [...new Set(twoArrayTwo.filter(n => set.has(n)))]
+}
+
+console.log(TwoArrays());
+/////////////////////////
+function intersection() {
+    let set = new Set(twoArrayOne);
+    let res = new Set();
+
+    for (var i = 0; i < twoArrayTwo.length; ++i) {
+        if (set.has(twoArrayTwo[i])) {
+            res.add(twoArrayTwo[i])
+        }
+
+    }
+    return Array.from(res)
+};
+
+let tt = intersection();
+console.log(tt);
