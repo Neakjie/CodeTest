@@ -371,3 +371,23 @@ var b = 3;
 console.log(a || b); ///return the first true
 
 console.log(a && b); /// return the last true
+
+
+
+/////////////////////////////////////////////////////Two Sum//////////////////////////////////////////
+var TwoSumNums = [2, 2, 5, 12, 3, 4];
+var target = 7;
+
+function TwoSum() {
+    const map = {};
+    for (let i = 0; i < TwoSumNums.length; i++) {
+        var temp = target - TwoSumNums[i]
+        if (map[temp]) {
+            return [map[temp], i]
+        } else {
+            map[TwoSumNums[i]] = i;
+        }
+    }
+}
+
+console.log(TwoSum());
