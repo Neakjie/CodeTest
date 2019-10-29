@@ -449,3 +449,37 @@ function PowerOfFour() {
 
 }
 console.log(PowerOfFour());
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////Two Array interaction 2/////////////////////////////////////////////////////
+var TAR21 = [1, 2, 2, 1];
+var TAR22 = [2, 2];
+
+function TwoArrays2() {
+
+    const map = new Map();
+    const res = [];
+    for (n of TAR21) {
+        if (map.has(n)) {
+            map.set(n, map.get(n) + 1)
+        } else {
+            map.set(n, 1)
+        }
+    }
+
+    for (x of TAR22) {
+        if (map.has(x)) {
+            res.push(x);
+            map.set(n, map.get(n) - 1);
+        }
+    }
+    return res
+
+}
+
+console.log(TwoArrays2());
