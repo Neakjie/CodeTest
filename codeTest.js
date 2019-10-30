@@ -483,3 +483,47 @@ function TwoArrays2() {
 }
 
 console.log(TwoArrays2());
+///////////////////////////////////////////////////////////////perfect Square/////////////////////////////////////////////////////////////////////////////////////
+////////////////////two pointer////////////////////////////////Time is low,space is ok
+var perfectNum = 100;
+
+
+function myPerfectSquare() {
+    let start = 1;
+    let end = perfectNum;
+    let mid;
+    if (perfectNum == 1 || perfectNum == 0) return true;
+    if (perfectNum < 0) return false;
+
+
+    while (start <= end) {
+        mid = Math.floor((start + end) / 2)
+        if (mid * mid == perfectNum) {
+            return true
+        } else if (mid * mid > perfectNum) {
+            end = mid - 1;
+        } else {
+            start = mid + 1;
+        }
+
+    }
+    return false
+
+}
+console.log(myPerfectSquare());
+/////////////////////stupid solution/////////////////////////////////////
+function myPerfectSquare2() {
+    var n = 0;
+    if (perfectNum < 0) return false;
+    if (perfectNum == 1 || perfectNum == 0) return true;
+    while (n < perfectNum) {
+        if (n * n == perfectNum) {
+            return true
+        } else {
+            n += 1;
+        }
+    }
+    return false
+
+}
+console.log(myPerfectSquare2());
