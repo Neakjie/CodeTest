@@ -527,3 +527,24 @@ function myPerfectSquare2() {
 
 }
 console.log(myPerfectSquare2());
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+
+
+let testingMap = { 't1': 1, 't2': 2, 't3': 3 }
+var testingMap2 = new Map();
+testingMap2.set('m1', 1)
+    .set('m2', 2)
+    .set('m3', 30);
+let iterator = testingMap2.values();
+
+console.log("Map() and Object", testingMap2);
+console.log('t3' in testingMap);
+console.log(testingMap2.get(30));
+console.log(iterator.next().value);
+console.log(iterator.next().value);
+console.log(iterator.next().value);
