@@ -532,7 +532,7 @@ console.log(myPerfectSquare2());
 
 
 
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////Map & Object//////////////////////////////////////////////////////
 
 
 let testingMap = { 't1': 1, 't2': 2, 't3': 3 }
@@ -548,3 +548,32 @@ console.log(testingMap2.get(30));
 console.log(iterator.next().value);
 console.log(iterator.next().value);
 console.log(iterator.next().value);
+
+
+/////////////////////////////////////////////////////////////Coin change/////////////////////////////////////////////////////////////////////////
+var coinChange = function(coins, amount) {
+    coins.sort((a, b) => b - a);
+
+    let res = Infinity;
+
+    function helper(k, amount, count) {
+        const coin = coins[k];
+
+        // last smallest coin
+        if (k === coins.length - 1) {
+            if (amount % coin === 0) {
+                res = Math.min(res, count + Math.floor(amount / coin));
+            }
+        } else {
+            for (let i = Math.floor(amount / coin); i >= 0 && count + i < res; i--) { // count + i < res is for pruning, avoid unnecessary calculation
+                helper(k + 1, amount - coin * i, count + i);
+            }
+        }
+    }
+
+    helper(0, amount, 0);
+
+    return res === Infinity ? -1 : res;
+};
+
+console.log(coinChange([2, 5, 10], 33));
