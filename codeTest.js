@@ -557,6 +557,7 @@ var coinChange = function(coins, amount) {
 
     let res = Infinity;
 
+
     function helper(k, amount, count) {
         const coin = coins[k];
 
@@ -564,6 +565,7 @@ var coinChange = function(coins, amount) {
         if (k === coins.length - 1) {
             if (amount % coin === 0) {
                 res = Math.min(res, count + Math.floor(amount / coin));
+
             }
         } else {
             for (let i = Math.floor(amount / coin); i >= 0 && count + i < res; i--) { // count + i < res is for pruning, avoid unnecessary calculation
@@ -577,7 +579,27 @@ var coinChange = function(coins, amount) {
     return res === Infinity ? -1 : res;
 };
 
-console.log(coinChange([2, 5, 10], 33));
+console.log("coinchange:", coinChange([2, 5, 10], 33));
+
+
+/////////////////////////////////////////////////////////////Coin change(with details)/////////////////////////////////////////////////////////////////////////
+var change = function(coins, amount) {
+    const N = coins.length
+
+    const DP = Array(amount + 1).fill(0)
+
+    DP[0] = 1
+
+    for (const coin of coins) {
+        for (let col = coin; col <= amount; col++) {
+            DP[col] += DP[col - coin]
+        }
+    }
+
+    return DP[amount]
+};
+
+console.log("coinchange2:", change([2, 5, 10], 33));
 
 
 

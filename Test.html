@@ -52,7 +52,31 @@
     <blockquote>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</blockquote>
 </div>
 
+
+<div>
+    <input id="clear" type="text">
+
+    <button id="bt" onclick="clear()">rest</button>
+
+</div>
+
+
+
 <script>
+    var res = document.getElementById("clear");
+
+    document.getElementById("bt").onclick = function() {
+        res.value = 0;
+        console.log(1);
+
+    }
+
+
+
+
+
+
+
     var gvalue = 1;
 
     function abc() {
