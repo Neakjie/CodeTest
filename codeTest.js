@@ -595,7 +595,7 @@ var applyNums = [1, 2, 3];
 applyArr.push.call(applyArr, ...applyNums);
 console.log(applyArr);
 
-//call and apply can use object items from other object scope within the current scope/////////////////////I M P O R T A N T !////////
+//call and apply can use object items from other object scope within the current object scope/////////////////////I M P O R T A N T !////////
 var callApplyObject = {
     name: "callApply",
     id: "1",
