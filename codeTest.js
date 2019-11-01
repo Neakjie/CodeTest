@@ -336,11 +336,12 @@ var mapArr = [3, 16, 51, 2];
 mapArr.map(myMapFunction);
 
 function myMapFunction(num) {
-    return Math.sqrt(num)
+    return num + 1
+        // Math.sqrt(num)
 }
 //////////map will return, for each don't need a return
 
-console.log(mapArr.map(myMapFunction));
+console.log("Map:", mapArr.map(myMapFunction));
 ///////////////////////////////////////////////////Math.max()////////////////////////////////////////
 var mathMaxArr = [2, 2, 5, 7];
 
@@ -577,3 +578,37 @@ var coinChange = function(coins, amount) {
 };
 
 console.log(coinChange([2, 5, 10], 33));
+
+
+
+//////////////////////////////////////////////////////////////////////////call & apply///////////////////////////////////////////////////
+function myCall(n, m) {
+    n = n + m;
+    return n;
+}
+console.log(myCall.call(undefined, 2, 3)); ////pass arguments list
+console.log(myCall.apply(undefined, [2, 4, 3, 4, 5])); ////pass argument's arrary
+var applyArr = ["a", "b"];
+var applyNums = [1, 2, 3];
+
+//applyArr.push.apply(applyArr, applyNums);
+applyArr.push.call(applyArr, ...applyNums);
+console.log(applyArr);
+
+//call and apply can use object items from other object scope within the current scope/////////////////////I M P O R T A N T !////////
+var callApplyObject = {
+    name: "callApply",
+    id: "1",
+    callApplyFunc() {
+        console.log(this.name + this.id);
+
+    },
+}
+
+var callApplyTest = {
+    name: "test",
+    id: "2"
+}
+
+callApplyObject.callApplyFunc();
+callApplyObject.callApplyFunc.apply(callApplyTest);
