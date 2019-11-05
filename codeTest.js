@@ -351,6 +351,7 @@ console.log(undefined > 0);
 console.log(undefined < 0);
 console.log(undefined == 0);
 console.log(undefined == null);
+console.log(undefined === null);
 
 ///////////////////////////////////////////////////////!! double not equal//////////////////////////
 console.log("!! shows undefined :" + !!undefined);
@@ -364,7 +365,14 @@ console.log([] == true); //because this [] changes to "" and ""changes to 0, but
 
 /////////////////////////////////////////////////comma , ///////////////////////////////////////////
 var commaArr = (2, 3, 5);
+
+function myCommaFunc() {
+    var a = 0;
+    return (a += 7, a);
+}
 console.log("comma:" + commaArr);
+console.log("comma:" + myCommaFunc());
+
 
 //////////////////////////////////////////////// a && b /////////////////////////////////////////////
 var a = 5;
@@ -648,3 +656,33 @@ var climbingdp = function(n) {
 
 
 console.log(climbingdp(12));
+
+
+//////////////////////////////////////////////////////////////////////////////////////////Minimum Swaps///////////////////////////////////////////////////////////////
+
+
+
+function myMinSwap(arr) {
+    let swap = 0;
+    let visited = new Array(arr.length);
+
+    for (let i = 0; i < arr.length; i++) {
+        let j = i;
+        let cycle = 0;
+
+        while (!visited[j]) {
+            visited[j] = true;
+            j = arr[j] - 1;
+            cycle += 1;
+
+        }
+        if (cycle !== 0) {
+            swap += cycle - 1;
+        }
+    }
+    return swap;
+
+}
+
+
+console.log(myMinSwap([5, 3, 2, 1, 4]));
