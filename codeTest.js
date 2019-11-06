@@ -714,23 +714,54 @@ var canConstruct = function(ransomNote, magazine) {
             }
         }
         return true
+    }
+    //     var map = {};
+    //     var mchars = magazine.split('');
+    //     var rchars = ransomNote.split('');
 
-        //     var map = {};
-        //     var mchars = magazine.split('');
-        //     var rchars = ransomNote.split('');
+//     var i;
+//     for (i = 0; i < mchars.length; i++) {
+//         map[mchars[i]] = (map[mchars[i]] || 0) + 1;
+//     }
 
-        //     var i;
-        //     for (i = 0; i < mchars.length; i++) {
-        //         map[mchars[i]] = (map[mchars[i]] || 0) + 1;
-        //     }
+//     for (i = 0; i < rchars.length; i++) {
+//         map[rchars[i]] = (map[rchars[i]] || 0) - 1;
+//         if (map[rchars[i]] < 0) {
+//             return false;
+//         }
+//     }
+//     return true;
+// };
 
-        //     for (i = 0; i < rchars.length; i++) {
-        //         map[rchars[i]] = (map[rchars[i]] || 0) - 1;
-        //         if (map[rchars[i]] < 0) {
-        //             return false;
-        //         }
-        //     }
-        //     return true;
-        // };
+console.log(canConstruct(ransomNote, magazine));
 
-        console.log(canConstruct(ransomNote, magazine));
+//////////////////////////////////////////////////////////////////////
+var a;
+let notd;
+
+
+for (var j = 0; j < 5; j++) {
+    console.log(j);
+
+}
+console.log("j", j);
+
+////////////////////////////////////////////////////////////////////////function format/////////////////////////////////////////////////////
+function Person(name) {
+
+    this.name = name;
+}
+
+var person = Person();
+console.log(person); // undefined
+//console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
+
+var person = new Person('John');
+console.log(person); // Person { name: "John" }
+console.log(person.name); // "john"
+
+var person = function Person(name) {
+    this.name = name;
+}
+
+console.log("con:", person.name);
