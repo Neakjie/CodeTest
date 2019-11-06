@@ -686,3 +686,51 @@ function myMinSwap(arr) {
 
 
 console.log(myMinSwap([5, 3, 2, 1, 4]));
+//////////////////////////////////////////////////////////////////////////////////////////////ransomNote and magazine(Ransom Note) check a string whether has another string////////////////////////////////////////////////////////
+let ransomNote = "fffbfg";
+let magazine = "effjfggbffjdgbjjhhdegh";
+
+var canConstruct = function(ransomNote, magazine) {
+        var map = {};
+        let rc = ransomNote.split('');
+        let mc = magazine.split('');
+
+        for (let i = 0; i < magazine.length; i++) {
+            if (map[mc[i]] >= 0) {
+                map[mc[i]] += 1;
+            } else {
+                map[mc[i]] = 1;
+            }
+        }
+        console.log(map)
+        for (let i = 0; i < ransomNote.length; i++) {
+            if (map[rc[i]]) {
+                map[rc[i]] -= 1;
+                if (map[rc[i]] < 0) {
+                    return false
+                }
+            } else {
+                return false
+            }
+        }
+        return true
+
+        //     var map = {};
+        //     var mchars = magazine.split('');
+        //     var rchars = ransomNote.split('');
+
+        //     var i;
+        //     for (i = 0; i < mchars.length; i++) {
+        //         map[mchars[i]] = (map[mchars[i]] || 0) + 1;
+        //     }
+
+        //     for (i = 0; i < rchars.length; i++) {
+        //         map[rchars[i]] = (map[rchars[i]] || 0) - 1;
+        //         if (map[rchars[i]] < 0) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // };
+
+        console.log(canConstruct(ransomNote, magazine));
