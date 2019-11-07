@@ -278,6 +278,18 @@ function myFunction(item, index, arr) {
     arr[index] = item * 2
 }
 console.log(forEachArr);
+/////////////////////////////////////////////////////reduce/////////////////////////////////////////////////////////////////////
+var myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd'];
+var myOrderedArray = myArray.reduce(function(accumulator, currentValue) {
+    ////if the letter is the last one in the array we push 
+    if (accumulator.indexOf(currentValue) === -1) {
+        accumulator.push(currentValue);
+    }
+    return accumulator
+        ///initial value is an empty array
+}, [])
+
+console.log("reduce:", myOrderedArray);
 
 ///////////////////////////////////////////////filter/////////////////////////////////////////////////
 var filterArr = [9, 8, 8, 54, 7];
