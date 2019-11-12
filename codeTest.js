@@ -112,13 +112,7 @@
 // // console.log(Object.values(newDic))
 
 
-// // var numArry = [1, 2, 3, 4, 5]
 
-
-// // console.log(numArry.concat(numArry.slice()))
-
-
-// // console.log([...numArry, ...numArry]);
 
 // console.log(abc());
 
@@ -269,6 +263,11 @@
 // const f = { type: "1" };
 // f.type = 2
 // console.log(f.type);
+
+
+
+
+
 
 ////////////////////////////////////////////////forEach//////////////////////////////////////////////////////
 var forEachArr = [1, 2, 1, 4];
@@ -799,3 +798,110 @@ console.log(FizzbuzzFuc());
 
     console.log(rest);
 })();
+////////////////////////////////////////////////////////////////////////////////////Closure///////////////////////////////////////
+var testModule = (function() {
+
+    var counter = 0;
+
+    return {
+
+        incrementCounter: function() {
+
+            return counter++;
+        },
+        resetCounter: function() {
+            console.log("counter value prior to reset: " + counter);
+            counter = 0;
+        }
+    };
+
+})();
+
+testModule.incrementCounter();
+testModule.incrementCounter();
+testModule.incrementCounter();
+testModule.resetCounter();
+
+
+////////////////////////////////////////////////////concat Array////////////////////////////////////////////////////// 
+var numArry = [1, 2, 3, 4, 5]
+
+console.log(numArry.concat(numArry.slice()))
+
+console.log([...numArry, ...numArry]);
+/////////////////////////////////////////////////////exec()/////////////////////////////////////////////////////////////
+var myExec = function() {
+    let newArray = "Hello, This is pasha!";
+    let patt = /is/g;
+    let res = patt.exec(newArray);
+    console.log(res);
+
+    return res
+
+}
+myExec()
+    /////////////////////////////////////////////////////////convert Object to JSON/////////////////////////////////////////////////
+let testObjectToJSON = {
+    'Angular': 'JS',
+    'CSS': 'HTML',
+    'userInfo': {
+        'first': 'a',
+        'last': 'b'
+    }
+};
+var myFunctionToJSON = function(obj) {
+    let res = [];
+    for (let k in obj) {
+        let tempObj = {};
+        tempObj['key'] = k;
+        if (Object.prototype.toString.call(obj[k]) === "[object Object]") {
+            tempObj['value'] = myFunctionToJSON(obj[k]);
+        } else {
+            tempObj['value'] = obj[k];
+        }
+        res.push(tempObj);
+    }
+    return res;
+}
+console.log(myFunctionToJSON(testObjectToJSON));
+/////////////////////////////////////////////////////////////////////////////////////////SOAP CALL////////////////////////////////////////////////////
+function soapRequest() {
+    var str = 'your SOAP request';
+
+    function createCORSRequest(method, url) {
+        var xhr = new XMLHttpRequest();
+        if ("withCredentials" in xhr) {
+            xhr.open(method, url, false);
+        } else if (typeof XDomainRequest != "undefined") {
+            xhr = new XDomainRequest();
+            xhr.open(method, url);
+        } else {
+            console.log("CORS not supported");
+            alert("CORS not supported");
+            xhr = null;
+        }
+        return xhr;
+    }
+    var xhr = createCORSRequest("POST", "http://localhost:8080");
+    if (!xhr) { console.log("XHR issue"); return; }
+    xhr.onload = function() {
+        var results = xhr.responseText;
+        console.log(results);
+    }
+    xhr.setRequestHeader('Content-Type', 'text/xml');
+    xhr.send(str);
+}
+////////////////////////////////////////////////////////////////////////////////empty Array////////////////////////////////
+var myEmpty = function() {
+    let testArr = [1, 2, 3];
+    testArr.splice(0, testArr.length);
+    console.log("myEmptyArray:", testArr);
+    return testArr
+
+}
+console.log(myEmpty());
+///////////////////////////////////////////////////////////////////////////////////ES6 number////////////////////////////////////////////
+
+console.log(Number.isNaN(NaN)); ////use for NaN only
+console.log(isNaN("2"));
+console.log(typeof("2"));
