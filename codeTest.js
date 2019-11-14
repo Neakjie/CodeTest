@@ -279,7 +279,15 @@ function myFunction(item, index, arr) {
 console.log(forEachArr);
 /////////////////////////////////////////////////////reduce/////////////////////////////////////////////////////////////////////
 var myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd'];
-var myOrderedArray = myArray.reduce(function(accumulator, currentValue) {
+// var myOrderedArray = myArray.reduce(function(accumulator, currentValue) {
+//     ////if the letter is the last one in the array we push 
+//     if (accumulator.indexOf(currentValue) === -1) {
+//         accumulator.push(currentValue);
+//     }
+//     return accumulator
+//         ///initial value is an empty array
+// }, [])
+var myOrderedArray = myArray.reduce((accumulator, currentValue) => {
     ////if the letter is the last one in the array we push 
     if (accumulator.indexOf(currentValue) === -1) {
         accumulator.push(currentValue);
@@ -346,8 +354,8 @@ console.log(res);
 var mapArr = [3, 16, 51, 2];
 mapArr.map(myMapFunction);
 
-function myMapFunction(num) {
-    return num + 1
+function myMapFunction(num, index, arr) {
+    return arr[index] = num * 2
         // Math.sqrt(num)
 }
 //////////map will return, for each don't need a return
@@ -894,7 +902,13 @@ function soapRequest() {
 ////////////////////////////////////////////////////////////////////////////////empty Array////////////////////////////////
 var myEmpty = function() {
     let testArr = [1, 2, 3];
-    testArr.splice(0, testArr.length);
+    ////(1)
+    while (testArr.length > 0) {
+        testArr.pop();
+    }
+    //(2) testArr.length = 0;
+    //(3) testArr = [];
+    //(4) testArr.splice(0, testArr.length);
     console.log("myEmptyArray:", testArr);
     return testArr
 
@@ -905,3 +919,69 @@ console.log(myEmpty());
 console.log(Number.isNaN(NaN)); ////use for NaN only
 console.log(isNaN("2"));
 console.log(typeof("2"));
+////////////////////////////////////////////////////////////////////////////////remove duplicate///////////////////////////////////////////////////////
+var removeDuplicate = function(nums) {
+    console.log([...new Set(nums)]);
+
+}
+
+removeDuplicate(["n", "sn", "n", "ss"])
+var removeDuplicateReduce = function(arr) {
+    return arr.reduce((total, val) => {
+        if (total.indexOf(val) === -1) {
+            total.push(val)
+        }
+        return total
+    }, [])
+
+}
+console.log(removeDuplicateReduce(["1", "1", "2"]));
+
+
+
+/////////////////////////////////////////////////////////////////////////////////open nested Array/////////////////////////////////////////////////////////////
+var openNestedArray = function(arr, d) {
+    return d > 0 ? arr.reduce((total, val) => total.concat(Array.isArray(val) ? openNestedArray(val, d - 1) : val), []) : arr.slice()
+
+}
+var arrOpen = [1, 2, [3, 4]];
+
+
+/////arrOpen.flat();
+
+
+console.log(openNestedArray([1, 2, [3, 4, [4, 5]]], Infinity));
+console.log(arrOpen);
+//////////////////////////////////////////////////////////////////////////////////Object modifing//////////////////////////////////////////////////////////////////////////
+
+var myObjectModifying = function() {
+    let ObjectT = {
+            Name: "Pasha",
+            age: 18,
+        }
+        ///freeze
+        // Object.freeze(ObjectT);
+        // ObjectT.Name = "PAPAa";
+        // console.log("freezed:", ObjectT);//////////////////won't be changed a little
+        ///seal
+        // Object.seal(ObjectT);
+        // ObjectT.Name = "PAPAa";
+        // ObjectT.New = "hello";/////////////////////////////can change, but not add
+    Object.defineProperty(ObjectT, 'Why', {
+        value: "Hello",
+        writable: false,
+        enumerable: true
+    })
+
+
+    console.log(ObjectT.Why);
+    ObjectT.Why = "?";
+    console.log(ObjectT.Why);
+
+
+    return ObjectT
+}
+
+console.log(myObjectModifying());
+//////////////////////////////////////////////////////////////////////////////////////////Math.max()//////////////////////////////////////////////////////
+console.log(Math.max()); ///////////////because the Math.max() function needs to use a smallest comparation for comparing
